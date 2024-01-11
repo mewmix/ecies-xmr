@@ -45,7 +45,7 @@ _, receiver_keys = generate_monero_keypair()
 
 # Testing with a message
 original_message = "Hello, this is a test message!"
-
+original_message2 = "Hello, this is a new test message!"
 # Encrypt the message using sender's private spend key and receiver's public view key
 ciphertext, tag, nonce = encrypt(sender_keys[0], receiver_keys[1], original_message)
 print(sender_keys[0].hex())
@@ -63,4 +63,31 @@ else:
 
 
 
- 
+import binascii
+
+def hex_to_bytes(hex_string):
+    return binascii.unhexlify(hex_string)
+
+# Provided keys
+secret_spend_key_hex = "3f1268445c91485748e0a1130591cf6b821c4f71f2ed332e39c84bcdf5df2507"
+secret_view_key_hex = "a0c496e2cb98e552eb00c817621a5e1f8d87abc780f1b7bf55b5772100f98b0f"
+
+# Convert hex keys to bytes
+secret_spend_key = hex_to_bytes(secret_spend_key_hex)
+secret_view_key = hex_to_bytes(secret_view_key_hex)
+
+# Generate public keys
+public_spend_key = publickey(secret_spend_key)
+public_view_key = publickey(secret_view_key)
+
+# Now you can use these keys with your encrypt and decrypt functions
+# ...
+
+# Run encryption
+ciphertext, tag, nonce = encrypt(secret_spend_key, public_view_key, original_message2)
+
+# Run decryption
+decrypted_message2 = decrypt(secret_view_key, public_spend_key, ciphertext, tag, nonce)
+print(decrypted_message2)
+# Check decryption result
+# ...
