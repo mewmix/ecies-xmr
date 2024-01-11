@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ecies_xmr',
-    version='0.1.1',
+    version='0.2',
     packages=find_packages(),
     description='ECIES implementation for the Monero Edwards25519 curve',
     long_description=open('README.md').read(),
