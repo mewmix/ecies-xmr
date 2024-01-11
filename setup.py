@@ -9,7 +9,7 @@ setup(
     long_description_content_type='text/markdown',
     author='Alexander Klein',
     author_email='alexanderjamesklein@gmail.com',
-    url='https://github.com/mewmix/monero_ecies',
+    url='https://github.com/mewmix/ecies-xmr',
     install_requires=[
         'pycryptodome',  # Add other dependencies as needed
     ],
