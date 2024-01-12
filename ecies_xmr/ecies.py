@@ -5,7 +5,7 @@ from .ed25519 import H, publickey, scalarmult, decodepoint, decodeint, encodepoi
 
 class MoneroECIES:
     """
-    A proof of concept class representing the Elliptic Curve Integrated Encryption Scheme (ECIES) 
+    A proof of concept class representing a proposed Elliptic Curve Integrated Encryption Scheme (ECIES) 
     for the Monero Edwards25519 curve. Currently this only works with its own derivation of public keys from private key pairs.
     """
     @staticmethod
